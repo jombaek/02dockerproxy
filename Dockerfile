@@ -1,7 +1,11 @@
-FROM node:current-slim
-WORKDIR /usr/src/app
-COPY package.json .
-RUN npm install
-EXPOSE 8080
-CMD [ "npm", "start" ]
-COPY . .
+# Филиппов Петр
+FROM python:3.8.0-buster
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY /app .
+
+CMD ["python", "myproxy.py"]

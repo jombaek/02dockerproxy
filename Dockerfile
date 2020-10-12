@@ -1,11 +1,8 @@
-# Филиппов Петр
-FROM python:3.8.0-buster
-
+#Filippov
+FROM python
 WORKDIR /app
-
 COPY requirements.txt .
+COPY myproxy.py .
 RUN pip install -r requirements.txt
-
-COPY /app .
-
-CMD ["python", "myproxy.py"]
+EXPOSE 8000
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "myproxy:app"]

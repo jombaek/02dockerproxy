@@ -24,3 +24,4 @@ vendor/pkg/
 pyenv
 Vagrantfile
 __pycache__
+Procfile

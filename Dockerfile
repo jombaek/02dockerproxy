@@ -1,8 +1,8 @@
 #Lukovtsev
-FROM node:current-slim
+FROM python
 WORKDIR /usr/src/app
-COPY package.json .
-RUN npm install
-EXPOSE 8080
-CMD [ "npm", "start" ]
-COPY . .
+COPY myproxy.py .
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+EXPOSE 8000
+CMD [ "gunicorn", "-b", "0.0.0.0:8000", "myproxy:app" ]

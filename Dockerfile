@@ -1,3 +1,4 @@
+# Федоров
 FROM node:current-slim
 WORKDIR /usr/src/app
 COPY package.json .

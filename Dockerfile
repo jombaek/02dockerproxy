@@ -1,5 +1,5 @@
 #nikiforov
-FROM python
+FROM python:3-onbuild
 WORKDIR /app
 COPY myproxy.py .
 COPY requirements.txt .
